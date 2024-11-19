@@ -2,8 +2,8 @@
 #include <WiFiClientSecure.h>
 
 // Wi-Fi credentials
-const char* ssid = "Adrian's S24+";
-const char* password = "myshxdgfkjad7ud";
+const char* ssid = "Sofia's Galaxy A53 5G";
+const char* password = "sofi1008";
 
 // Google Apps Script URL
 const char* host = "script.google.com";
@@ -39,12 +39,14 @@ void setup() {
     Serial.println("Connecting to WiFi...");
   }
   Serial.println("Connected to WiFi");
+  pinMode(mq135Pin, INPUT);
+  pinMode(flamePin, INPUT);
 }
 
 void loop() {
   if (WiFi.status() == WL_CONNECTED) {
     // Read sensor data
-    float temperature = analogRead(lm35Pin);// Convert analog value to temperature
+    float temperature = analogRead(lm35Pin); // Convert analog value to temperature
     int airQuality = digitalRead(mq135Pin); // Read digital value from MQ135 (0 or 1)
     int flameDetected = digitalRead(flamePin); // Read flame detection (1 or 0)
 
